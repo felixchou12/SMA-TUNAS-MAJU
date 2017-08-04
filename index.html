@@ -226,8 +226,8 @@
                
                 <body onload="muatDaftarData();">
                 <ul class="nav nav-pills">
-                  <li><a id="nav-list-data" href="javascript:void(0);" onclick="gantiMenu('list-data');">Daftar Data</a></li>
-                  <li><a id="nav-tambah-data" href="javascript:void(0);" onclick="gantiMenu('tambah-data');">Tambah Data</a></li>
+                  <li style="background: silver"><a id="nav-list-data" href="javascript:void(0);" onclick="gantiMenu('list-data');">Daftar Data Siswa</a></li>
+                  <li style="background: silver"><a id="nav-tambah-data" href="javascript:void(0);" onclick="gantiMenu('tambah-data');">Registrasi Form</a></li>
                 </ul>
 
             </div>
@@ -236,34 +236,56 @@
 
             <div class="space"></div>
 
-            <div id="tambah-data" class="well" style="display:none;">
+            <div id="tambah-data" class="well" style="display: none;">
                 <form id="form-data">
+                <h1>DATA PRIBADI</h1>
                     <div id="name-group" class="form-group">
                         <label>Nama:</label> 
-                        <input type="text" class="form-control" id="nama" name="nama" placeholder="" /><br/>
+                        <input type="text" class="form-control" id="nama" name="nama" placeholder="Isilah dengan Nama Lengkap Anda" /><br/>
                     </div>
                     <div id="alamat-group" class="form-group">
                         <label>Jenis Kelamin:</label> 
-                        <input type="text" class="form-control" id="gender" name="gender" placeholder="" /><br/>
+                        <input type="text" class="form-control" id="gender" name="gender" placeholder="Laki-Laki / Perempuan" /><br/>
                     </div>
                     <div id="alamat-group" class="form-group">
-                        <label>Tanggal Lahir:</label> 
-                        <input type="text" class="form-control" id="tahun" name="tahun" placeholder="" /><br/>
+                        <label>Tempat, Tanggal Lahir:</label> 
+                        <input type="text" class="form-control" id="tahun" name="tahun" placeholder="Format : Tempat, Tanggal-Bulan-Tahun" /><br/>
                     </div>
                     <div id="ket-group" class="form-group">
                         <label>Alamat:</label> 
-                        <textarea class="form-control" id="alamat" name="alamat" placeholder=""></textarea><br/>
+                        <textarea class="form-control" id="alamat" name="alamat" placeholder="Isilah dengan Alamat anda sekarang"></textarea><br/>
                     </div>
                     <div id="ket-group" class="form-group">
                         <label>Asal Sekolah:</label> 
-                        <input type="text" class="form-control" id="asal" name="asal" placeholder="" /><br/>
+                        <input type="text" class="form-control" id="asal" name="asal" placeholder="Isilah Asal Sekolah anda" /><br/>
                     </div>
 
                     <h1>Data Orang Tua</h1>
-                    <input type="button" value="Simpan" onclick="simpanData();" class="btn btn-success btn-small"/>
-                    <input type="reset" value="Reset" onclick="" class="btn btn-warning btn-small"/>
+                     <div id="alamat-group" class="form-group">
+                        <label>Ayah:</label> 
+                        <input type="text" class="form-control" id="ayah" name="ayah" placeholder="Nama Ayah" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>Ibu:</label> 
+                        <input type="text" class="form-control" id="ibu" name="ibu" placeholder="Nama Ibu" /><br/>
+                    </div>
+                     <div id="alamat-group" class="form-group">
+                        <label>Alamat Lengkap:</label> 
+                        <input type="text" class="form-control" id="lengkap" name="lengkap" placeholder="Alamat Orang Tua" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>No HP :</label> 
+                        <input type="text" class="form-control" id="hp" name="hp" placeholder="Nomor HP Orang Tua" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>Pekerjaan :</label> 
+                        <input type="text" class="form-control" id="kerja" name="kerja" placeholder="Pekerjaan Orang Tua" /><br/>
+                    </div>
+                    <input style="background: gold" type="button" value="Submit" onclick="simpanData();" class="btn btn-success btn-small"/>
+                    <input style="background: red " type="reset" value="Reset" onclick="" class="btn btn-warning btn-small"/>
                 </form>
             </div>
+
             <div id="edit-data" class="well" style="display:none;">
                 <form id="eform-data">
 				
@@ -274,23 +296,43 @@
 				
                     <div id="name-group" class="form-group">
                         <label>Nama:</label> 
-                        <input type="text" class="form-control" id="enama" name="nama" placeholder="" /><br/>
+                        <input type="text" class="form-control" id="enama" name="nama" placeholder="Isilah dengan Nama Lengkap Anda" /><br/>
                     </div>
                     <div id="name-group" class="form-group">
                         <label>Jenis Kelamin:</label> 
-                        <input type="text" class="form-control" id="egender" name="gender" placeholder="" /><br/>
+                        <input type="text" class="form-control" id="egender" name="gender" placeholder="Laki-Laki / Perempuan" /><br/>
                     </div>
                     <div id="alamat-group" class="form-group">
-                        <label>tanggal lahir:</label> 
-                        <input type="text" class="form-control" id="etahun" name="tahun" placeholder="" /><br/>
+                        <label>Tempat Tanggal Lahir:</label> 
+                        <input type="text" class="form-control" id="etahun" name="tahun" placeholder="Format : Tempat, Tanggal-Bulan-Tahun" /><br/>
                     </div>
                     <div id="alamat-group" class="form-group">
                         <label>Alamat:</label> 
-                        <input type="text" class="form-control" id="ealamat" name="alamat" placeholder="" /><br/>
+                        <input type="text" class="form-control" id="ealamat" name="alamat" placeholder="Isilah dengan Alamat anda sekarang" /><br/>
                     </div>
                     <div id="ket-group" class="form-group">
                         <label>Asal Sekolah:</label> 
-                        <input type="text" class="form-control" id="asal" name="asal" placeholder="" /><br/>
+                        <input type="text" class="form-control" id="easal" name="asal" placeholder="Isilah Asal Sekolah anda" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>Ayah:</label> 
+                        <input type="text" class="form-control" id="eayah" name="ayah" placeholder="Nama Ayah" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>Ibu:</label> 
+                        <input type="text" class="form-control" id="eibu" name="ibu" placeholder="Nama Ibu" /><br/>
+                    </div>
+                     <div id="alamat-group" class="form-group">
+                        <label>Alamat Lengkap:</label> 
+                        <input type="text" class="form-control" id="elengkap" name="lengkap" placeholder="Alamat Orang Tua" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>No HP :</label> 
+                        <input type="text" class="form-control" id="ehp" name="hp" placeholder="Nomor HP Orang Tua" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>Pekerjaan :</label> 
+                        <input type="text" class="form-control" id="ekerja" name="kerja" placeholder="Pekerjaan Orang Tua" /><br/>
                     </div>
                     
                     <input type="button" value="Simpan" onclick="simpanEditData();" class="btn btn-success btn-small"/>
@@ -304,6 +346,7 @@
         </div>
         
     </body>
+
     <script type="text/javascript">
         function muatDaftarData(){
             if (localStorage.daftar_data && localStorage.id_data){
@@ -316,14 +359,19 @@
                     data_app = '<table class="table">';
                     data_app += '<thead>'+
                                         '<th>ID</th>'+
-                                        '<th>nama</th>'+
-                                        '<th>jenis kelamin</th>'+
-                                        '<th>tanggal lahir</th>'+
-                                        '<th>alamat</th>'+
-                                        '<th>asal sekolah</th>'+
-                                        '<th>aksi</th>'+
-                                        '<th>aksi 2</th>'+
-                                      '</thead><tbody>';
+                                        '<th>Nama</th>'+
+                                        '<th>Jenis Kelamin</th>'+
+                                        '<th>Tanggal Lahir</th>'+
+                                        '<th>Alamat</th>'+
+                                        '<th>Asal Sekolah</th>'+
+                                        '<th>Nama Ayah</th>'+
+                                        '<th>Nama Ibu</th>'+
+                                        '<th>Alamat Lengkap</th>'+
+                                        '<th>No HP</th>'+
+                                        '<th>Pekerjaan</th>'+
+                                        '<th>Hapus</th>'+
+                                        '<th>Edit</th>'+
+                                      	'</thead><tbody>';
                                       
                     for (i in daftar_data){
                         data_app += '<tr>';
@@ -333,6 +381,11 @@
                                           '<td>'+ daftar_data[i].tahun + ' </td>'+
                                           '<td>'+ daftar_data[i].alamat + ' </td>'+
                                           '<td>'+ daftar_data[i].asal + ' </td>'+
+                                          '<td>'+ daftar_data[i].ayah + ' </td>'+
+                                          '<td>'+ daftar_data[i].ibu + ' </td>'+
+                                          '<td>'+ daftar_data[i].lengkap + ' </td>'+
+                                          '<td>'+ daftar_data[i].hp + ' </td>'+
+                                          '<td>'+ daftar_data[i].kerja + ' </td>'+
                                           '<td><a class="btn btn-danger btn-small" href="javascript:void(0)" onclick="hapusData(\''+daftar_data[i].id_data+'\')">Hapus</a></td>'+
                                           '<td><a class="btn btn-warning btn-small" href="javascript:void(0)" onclick="editData(\''+daftar_data[i].id_data+'\')">Edit</a></td>';
                         data_app += '</tr>';
@@ -365,6 +418,11 @@
 						$("#etahun").val(daftar_data[i].tahun);
 						$("#ealamat").val(daftar_data[i].alamat);
                         $("#easal").val(daftar_data[i].asal);
+                        $("#eayah").val(daftar_data[i].ayah);
+                        $("#eibu").val(daftar_data[i].ibu);
+                        $("#elengkap").val(daftar_data[i].lengkap);
+                        $("#ehp").val(daftar_data[i].hp);
+                        $("#ekerja").val(daftar_data[i].kerja);
 						daftar_data.splice(idx_data, 1);
                     }
                     idx_data ++;
@@ -382,7 +440,11 @@
             tahun = $('#tahun').val();
             alamat = $('#alamat').val();
             asal = $('#asal').val();
-
+            ayah = $('#ayah').val();
+            ibu = $('#ibu').val();
+            lengkap = $('#lengkap').val();
+            hp = $('#hp').val();
+            kerja = $('#kerja').val();
             if (localStorage.daftar_data && localStorage.id_data){
                 daftar_data = JSON.parse(localStorage.getItem('daftar_data'));
                 id_data = parseInt(localStorage.getItem('id_data'));
@@ -393,7 +455,7 @@
             }
 
             id_data ++;
-            daftar_data.push({'id_data':id_data, 'nama':nama,'gender':gender, 'tahun':tahun, 'alamat':alamat, 'asal':asal});
+            daftar_data.push({'id_data':id_data, 'nama':nama,'gender':gender, 'tahun':tahun, 'alamat':alamat, 'asal':asal, 'ayah':ayah, 'ibu':ibu, 'lengkap':lengkap, 'hp':hp, 'kerja':kerja});
             localStorage.setItem('daftar_data', JSON.stringify(daftar_data));
             localStorage.setItem('id_data', id_data);
             document.getElementById('form-data').reset();
@@ -409,9 +471,14 @@
             tahun = $('#etahun').val();
             alamat = $('#ealamat').val();
             asal = $('#easal').val();
+            ayah = $('#eayah').val();
+            ibu = $('#eibu').val();
+            lengkap = $('#elengkap').val();
+            hp = $('#ehp').val();
+            kerja = $('#ekerja').val();
             
             
-            daftar_data.push({'id_data':id_data, 'nama':nama,'gender':gender, 'tahun':tahun, 'alamat':alamat, 'asal':asal});
+            daftar_data.push({'id_data':id_data, 'nama':nama,'gender':gender, 'tahun':tahun, 'alamat':alamat, 'asal':asal, 'ayah':ayah, 'ibu':ibu, 'lengkap':lengkap, 'hp':hp, 'kerja':kerja});
             localStorage.setItem('daftar_data', JSON.stringify(daftar_data));
             document.getElementById('eform-data').reset();
             gantiMenu('list-data');
@@ -464,7 +531,7 @@
     <nav id="tf-footer">
         <div class="container">
              <div class="pull-left">
-                <p>2017 © SMA Tunas Maju. All Rights Reserved. Designed and Coded by <a href="https://dribbble.com/jennpereira">Jenn</a> for <a href="https://themeforces.com">ThemeForces.Com</a></p>
+                <p>2017 © SMA Tunas Maju. All Rights Reserved. Designed and Coded by RFCode for <a href="index.html">SMA TUNAS MAJU</a></p>
             </div>
             <div class="pull-right"> 
                 <ul class="social-media list-inline">
