@@ -243,17 +243,23 @@
                         <input type="text" class="form-control" id="nama" name="nama" placeholder="" /><br/>
                     </div>
                     <div id="alamat-group" class="form-group">
+                        <label>Jenis Kelamin:</label> 
+                        <input type="text" class="form-control" id="gender" name="gender" placeholder="" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>Tanggal Lahir:</label> 
+                        <input type="text" class="form-control" id="tahun" name="tahun" placeholder="" /><br/>
+                    </div>
+                    <div id="ket-group" class="form-group">
                         <label>Alamat:</label> 
-                        <input type="text" class="form-control" id="alamat" name="alamat" placeholder="" /><br/>
+                        <textarea class="form-control" id="alamat" name="alamat" placeholder=""></textarea><br/>
                     </div>
                     <div id="ket-group" class="form-group">
-                        <label>Keterangan:</label> 
-                        <textarea class="form-control" id="ket" name="ket" placeholder=""></textarea><br/>
+                        <label>Asal Sekolah:</label> 
+                        <input type="text" class="form-control" id="asal" name="asal" placeholder="" /><br/>
                     </div>
-                    <div id="ket-group" class="form-group">
-                        <label>NoHP:</label> 
-                        <textarea class="form-control" id="nohp" name="nohp" placeholder=""></textarea><br/>
-                    </div>
+
+                    <h1>Data Orang Tua</h1>
                     <input type="button" value="Simpan" onclick="simpanData();" class="btn btn-success btn-small"/>
                     <input type="reset" value="Reset" onclick="" class="btn btn-warning btn-small"/>
                 </form>
@@ -270,18 +276,23 @@
                         <label>Nama:</label> 
                         <input type="text" class="form-control" id="enama" name="nama" placeholder="" /><br/>
                     </div>
+                    <div id="name-group" class="form-group">
+                        <label>Jenis Kelamin:</label> 
+                        <input type="text" class="form-control" id="egender" name="gender" placeholder="" /><br/>
+                    </div>
+                    <div id="alamat-group" class="form-group">
+                        <label>tanggal lahir:</label> 
+                        <input type="text" class="form-control" id="etahun" name="tahun" placeholder="" /><br/>
+                    </div>
                     <div id="alamat-group" class="form-group">
                         <label>Alamat:</label> 
                         <input type="text" class="form-control" id="ealamat" name="alamat" placeholder="" /><br/>
                     </div>
                     <div id="ket-group" class="form-group">
-                        <label>Keterangan:</label> 
-                        <textarea class="form-control" id="eket" name="ket" placeholder=""></textarea><br/>
+                        <label>Asal Sekolah:</label> 
+                        <input type="text" class="form-control" id="asal" name="asal" placeholder="" /><br/>
                     </div>
-                    <div id="ket-group" class="form-group">
-                        <label>NoHP:</label> 
-                        <textarea class="form-control" id="enohp" name="nohp" placeholder=""></textarea><br/>
-                    </div>
+                    
                     <input type="button" value="Simpan" onclick="simpanEditData();" class="btn btn-success btn-small"/>
                     <input type="reset" value="Reset" onclick="" class="btn btn-warning btn-small"/>
                     <input type="button" value="Cancel" onclick="gantiMenu('list-data');" class="btn btn-warning btn-small"/>
@@ -306,9 +317,10 @@
                     data_app += '<thead>'+
                                         '<th>ID</th>'+
                                         '<th>nama</th>'+
+                                        '<th>jenis kelamin</th>'+
+                                        '<th>tanggal lahir</th>'+
                                         '<th>alamat</th>'+
-                                        '<th>ket</th>'+
-                                        '<th>nohp</th>'+
+                                        '<th>asal sekolah</th>'+
                                         '<th>aksi</th>'+
                                         '<th>aksi 2</th>'+
                                       '</thead><tbody>';
@@ -317,9 +329,10 @@
                         data_app += '<tr>';
                         data_app += '<td>'+ daftar_data[i].id_data + ' </td>'+
                                           '<td>'+ daftar_data[i].nama + ' </td>'+
+                                          '<td>'+ daftar_data[i].gender + ' </td>'+                                          
+                                          '<td>'+ daftar_data[i].tahun + ' </td>'+
                                           '<td>'+ daftar_data[i].alamat + ' </td>'+
-                                          '<td>'+ daftar_data[i].ket + ' </td>'+
-                                          '<td>'+ daftar_data[i].nohp + ' </td>'+
+                                          '<td>'+ daftar_data[i].asal + ' </td>'+
                                           '<td><a class="btn btn-danger btn-small" href="javascript:void(0)" onclick="hapusData(\''+daftar_data[i].id_data+'\')">Hapus</a></td>'+
                                           '<td><a class="btn btn-warning btn-small" href="javascript:void(0)" onclick="editData(\''+daftar_data[i].id_data+'\')">Edit</a></td>';
                         data_app += '</tr>';
@@ -348,9 +361,10 @@
                     if (daftar_data[i].id_data == id){
 						$("#eid_data").val(daftar_data[i].id_data);
 						$("#enama").val(daftar_data[i].nama);
+						$("#egender").val(daftar_data[i].gender);
+						$("#etahun").val(daftar_data[i].tahun);
 						$("#ealamat").val(daftar_data[i].alamat);
-						$("#eket").val(daftar_data[i].ket);
-                        $("#enohp").val(daftar_data[i].nohp);
+                        $("#easal").val(daftar_data[i].asal);
 						daftar_data.splice(idx_data, 1);
                     }
                     idx_data ++;
@@ -364,9 +378,10 @@
         
         function simpanData(){
             nama = $('#nama').val();
+            gender = $('#gender').val();
+            tahun = $('#tahun').val();
             alamat = $('#alamat').val();
-            ket = $('#ket').val();
-            nohp = $('#nohp').val();
+            asal = $('#asal').val();
 
             if (localStorage.daftar_data && localStorage.id_data){
                 daftar_data = JSON.parse(localStorage.getItem('daftar_data'));
@@ -378,7 +393,7 @@
             }
 
             id_data ++;
-            daftar_data.push({'id_data':id_data, 'nama':nama, 'alamat':alamat, 'ket':ket, 'nohp':nohp});
+            daftar_data.push({'id_data':id_data, 'nama':nama,'gender':gender, 'tahun':tahun, 'alamat':alamat, 'asal':asal});
             localStorage.setItem('daftar_data', JSON.stringify(daftar_data));
             localStorage.setItem('id_data', id_data);
             document.getElementById('form-data').reset();
@@ -390,11 +405,13 @@
         function simpanEditData(){
             id_data = $('#eid_data').val();
             nama = $('#enama').val();
+            gender = $('#egender').val();
+            tahun = $('#etahun').val();
             alamat = $('#ealamat').val();
-            ket = $('#eket').val();
-            nohp = $('#enohp').val();
+            asal = $('#easal').val();
             
-            daftar_data.push({'id_data':id_data, 'nama':nama, 'alamat':alamat, 'ket':ket, 'nohp':nohp});
+            
+            daftar_data.push({'id_data':id_data, 'nama':nama,'gender':gender, 'tahun':tahun, 'alamat':alamat, 'asal':asal});
             localStorage.setItem('daftar_data', JSON.stringify(daftar_data));
             document.getElementById('eform-data').reset();
             gantiMenu('list-data');
